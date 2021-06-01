@@ -1,13 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import { Kennel } from './components/Kennel';
+import { BrowserRouter as Router } from "react-router-dom"
+import { Kennel } from './components/Kennels';
 import reportWebVitals from './reportWebVitals';
+import './index.css';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <Kennel />
-  </React.StrictMode>,
+  <Router>
+      <Kennel />
+  </Router>,
   document.getElementById('root')
 );
 
