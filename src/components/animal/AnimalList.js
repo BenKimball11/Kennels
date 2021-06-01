@@ -19,12 +19,15 @@ export const AnimalList = () => {
       {
         animals.map(animal => {
           return (
-            <div className="animal" id={`animal--${animal.id}`}>
+            <div className="animal" key= {animal.id} id={`animal--${animal.id}`}>
               <div className="animal__name">
                 Name: { animal.name }
               </div>
               <div className="animal__breed">
                 Breed: { animal.breed }
+              </div>
+              <div className="animal__location">
+                location: { animal.location.name }
               </div>
             </div>
           )
