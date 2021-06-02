@@ -9,8 +9,8 @@ export const AnimalProvider = (props) => {
 
     const getAnimals = () => {
         return fetch("http://localhost:8088/animals?_expand=customer&_expand=location&_sort=location.id")
-            .then(res => res.json())
-            .then(setAnimals)
+        .then(res => res.json())
+        .then(setAnimals)
     }
 
     const addAnimal = animalObj => {
@@ -21,7 +21,7 @@ export const AnimalProvider = (props) => {
             },
             body: JSON.stringify(animalObj)
         })
-        .then(getAnimals)
+        .then(response => response.json())
     }
 
     /*

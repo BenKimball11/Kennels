@@ -1,6 +1,11 @@
 import React, { useContext, useEffect } from "react"
 import { CustomerContext } from "./CustomerProvider"
+import { useHistory } from 'react-router-dom'
 import "./Customer.css"
+
+
+// Invoke the useHistory() hook function
+//const history = useHistory()
 
 export const CustomerList = () => {
   // This state changes when `getCustomers()` is invoked below
