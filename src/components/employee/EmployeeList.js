@@ -1,44 +1,38 @@
-import React, { useContext, useEffect } from "react"
+import React, { useState, useContext, useEffect } from "react"
 import { EmployeeContext } from "./EmployeeProvider"
-import { useHistory } from 'react-router-dom'
+import { Employee } from "./Employee"
 import "./Employee.css"
+import { Link, useHistory } from "react-router-dom"
 
 export const EmployeeList = () => {
-  // This state changes when `getEmployees()` is invoked below
-  const { employees, getEmployees } = useContext(EmployeeContext)
+    const { getEmployees, employees } = useContext(EmployeeContext)
 
-  //useEffect - reach out to the world for something
-  useEffect(() => {
-    console.log("EmployeeList: useEffect - getEmployees")
-    getEmployees()
-  }, [])
+    const history = useHistory()
+    // Initialization effect hook -> Go get Employee data
+    useEffect(()=>{
+        getEmployees()
+    }, [])
 
-  const history = useHistory()
+    return (
+        <>
+            <h1>Employees</h1>
 
-  return (
-    <>
-      <h2>Employees</h2>
-      <button onClick={
-        () => history.push("/employees/create")
-      }>
-            Add New Employee
-      </button>
-      <div className="employees">
-      {
-        employees.map(employee => {
-          return (
-            <div className="employee" id={`employee--${employee.id}`}>
-              <div className="employee__name">
-                Name: { employee.name }
-              </div>
-              <div className="employee__breed">
-                Location: { employee.location.name }
-              </div>
+            <button onClick={() => history.push("/employees/create")}>
+                Add Employee
+            </button>
+
+            <div className="employees">
+                
+                {employees.map((employee) => (
+                  <div className="employee" id={`employee--${employee.id}`}>
+                    <div className="employee__name">
+                      <Link to={`/employees/detail/${employee.id}`}>{ employee.name }</Link>
+                      </div>
+                  </div>
+                    )
+                    )
+                }
             </div>
-          )
-        })
-      }
-      </div>
-    </>
-  )
+        </>
+    )
 }

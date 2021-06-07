@@ -6,8 +6,11 @@ import "./Animal.css"
 import { useHistory } from 'react-router-dom';
 
 export const AnimalForm = () => {
+  //gets the AnimalContext from AnimalProvider
   const { addAnimal } = useContext(AnimalContext)
+  //gets the LocationContext from AnimalProvider
   const { locations, getLocations } = useContext(LocationContext)
+ //gets the CustomerContext from AnimalProvider
   const { customers, getCustomers } = useContext(CustomerContext)
 
   /*
@@ -15,6 +18,9 @@ export const AnimalForm = () => {
   Define the intial state of the form inputs with useState()
   */
 
+  //animal holds the initial state of the application
+  //setAnimal allows us to update state
+ 
   const [animal, setAnimal] = useState({
     name: "",
     breed: "",
