@@ -7,12 +7,14 @@ export const AnimalDetail = () => {
   const { animals, releaseAnimal } = useContext(AnimalContext);
    //location holds the initial state of the application
     //setLocation allows us to update state
+    //useState() holds data. thats it
   const [animal, setAnimal] = useState({ location: {}, customer: {} }); //explain what is happening here. is tis deconstructing location and customer to be allowed access in the return state
 
   /*
         Given the example URL above, this will store the value
         of 5 in the animalId variable
     */
+   //useParams() captures the parameter set in the url when animal detail route is present?
   const { animalId } = useParams();
 
   const history = useHistory();

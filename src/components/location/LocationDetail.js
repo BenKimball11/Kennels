@@ -6,7 +6,7 @@ import { useParams, useHistory } from "react-router-dom"
 export const LocationDetail = () => {
     const { getLocationById } = useContext(LocationContext)
     const [ location, setLocation ] = useState({employees: [], animals: []})
-
+//if you have a dynamic route, your are just capturing what is at the end of the url? maybe rewatch. useParams() deconstructs the data
     const { locationId } = useParams();
 
     const history = useHistory()

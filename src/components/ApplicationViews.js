@@ -37,6 +37,9 @@ export const ApplicationViews = () => {
         <LocationProvider>
           <CustomerProvider>
           
+            <Route exact path="/animals/edit/:animalId(\d+)"> {/* the (/d+) means to only capture if its a decimal */}
+              <AnimalForm />
+            </Route>
             <Route exact path="/animals/detail/:animalId(\d+)">
               <AnimalDetail />
             </Route>
@@ -49,9 +52,6 @@ export const ApplicationViews = () => {
               <AnimalForm />
             </Route>
 
-            <Route path="/animals/edit/:animalId(\d+)">
-              <AnimalForm />
-            </Route>
 
           </CustomerProvider>
         </LocationProvider>
